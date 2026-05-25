@@ -1,6 +1,7 @@
 import request from "supertest";
 
-import { calculateDiscount } from "./src/utils";
+// use require to avoid TS module error if utils.ts doesn't use ES module exports
+const { calculateDiscount } = require("./src/utils");
 import app from "./src/app";
 
 describe("App", () => {
