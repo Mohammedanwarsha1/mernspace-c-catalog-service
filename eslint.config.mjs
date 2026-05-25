@@ -10,12 +10,6 @@ export default [
     {
         files: ["**/*.ts"],
         languageOptions: {
-            globals: {
-                __dirname: "readonly",
-                module: "readonly",
-                process: "readonly",
-                require: "readonly",
-            },
             parser: tsParser,
             parserOptions: {
                 project: ["./tsconfig.eslint.json"],
@@ -31,17 +25,6 @@ export default [
             "@typescript-eslint/no-misused-promises": "off",
             "@typescript-eslint/no-unused-vars": "off",
             "@typescript-eslint/no-unsafe-assignment": "warn",
-        },
-    },
-    {
-        files: ["**/*.spec.ts", "**/*.test.ts"],
-        languageOptions: {
-            globals: {
-                describe: "readonly",
-                expect: "readonly",
-                it: "readonly",
-                require: "readonly",
-            },
         },
     },
 ];
