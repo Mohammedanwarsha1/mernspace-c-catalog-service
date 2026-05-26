@@ -6,10 +6,10 @@ export default [
         .withMessage("Category name is required")
         .isString()
         .withMessage("Category name should be a string"),
-    body("priceConfiguration")
+    body("PriceConfiguration")
         .exists()
         .withMessage("Price configuration is required"),
-    body("priceConfigutation.*.priceType")
+    body("PriceConfiguration.*.priceType")
         .exists()
         .withMessage("Price type is required")
         .custom((value: "base" | "aditional") => {
@@ -19,6 +19,7 @@ export default [
                     `${value} is invalid attribute for priceType feild.Possible values are: [${validKeys.join(",")}]`,
                 );
             }
+            return true;
         }),
-    body("attributes").exists().withMessage("Attribute feild is required"),
+    body("attribute").exists().withMessage("Attribute feild is required"),
 ];
