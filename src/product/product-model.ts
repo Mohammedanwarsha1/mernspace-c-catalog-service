@@ -44,7 +44,7 @@ const productSchema = new mongoose.Schema(
             require: true,
         },
         categoryId: {
-            type: mongoose.Schema.Types.Mixed,
+            type: mongoose.Schema.Types.ObjectId,
             ref: "Category",
         },
         isPublish: {
