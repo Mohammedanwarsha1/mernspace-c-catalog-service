@@ -1,4 +1,6 @@
 import {
+    DeleteObjectCommand,
+    DeleteObjectCommandInput,
     PutObjectCommand,
     PutObjectCommandInput,
     S3Client,
@@ -27,8 +29,14 @@ export class S3Strorage implements FileStorage {
         await this.client.send(new PutObjectCommand(objectParams));
     }
 
-    delete(): void {
-        throw new Error("Method not implemented.");
+    async delete(fileName: string): Promise<void> {
+        const objectParams: DeleteObjectCommandInput = {
+            Bucket: config.get("s3.bucket"),
+            Key: fileName,
+        };
+
+        await this.client.send(new DeleteObjectCommand(objectParams));
+        return;
     }
     getObjectUri(): string {
         throw new Error("Method not implemented.");
