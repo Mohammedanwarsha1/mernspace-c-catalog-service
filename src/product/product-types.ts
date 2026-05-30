@@ -18,6 +18,6 @@ export interface Product {
     attributes: ProductAttribute[];
     tenantId: string;
     categoryId: mongoose.Types.ObjectId | string;
-    //simage: string;
+    image: string;
     isPublish?: boolean;
 }
